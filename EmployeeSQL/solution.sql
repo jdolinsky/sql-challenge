@@ -45,15 +45,21 @@ from employees where employees.emp_no in (select emp_no from dept_emp where dept
 
 -- List each employee in the Sales and Development departments, including their employee number, 
 -- last name, first name, and department name.
-with base_table as (select employees.emp_no, employees.last_name, employees.first_name
-from employees where employees.emp_no in (select emp_no from dept_emp where dept_no = 'd007' or dept_no = 'd005'))
-select base_table.emp_no, base_table.last_name, base_table.first_name, dept_emp.dept_no
-from base_table 
-join dept_emp 
-on base_table.emp_no = dept_emp.emp_no
-where dept_emp.dept_no = 'd007' or dept_emp.dept_no = 'd005'
+with s_d_emp as (
+	select emp_no, dept_no 
+	from dept_emp
+	where dept_no in ('d007', 'd005'))
+select sd.emp_no, e.last_name, e.first_name, d.dept_name
+from s_d_emp sd
+join employees e 
+on sd.emp_no = e.emp_no
+join departments d 
+on sd.dept_no = d.dept_no
+order by 2;
 
-
-
-
-
+-- List the frequency counts, in descending order, 
+-- of all the employee last names (that is, how many employees share each last name).
+select  last_name, count(last_name) as total
+from employees
+group by last_name
+order by total desc;
