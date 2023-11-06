@@ -1,7 +1,7 @@
 # SQL Challenge
 # Employees During 1980-1990's Analysis. 
 ## Overview
-The data containing employee and department information was imported from several CSV files. Based on the data structure, corresponding tables were created in a Postgresql database. The database schema can be found in [schema.sql](EmployeeSQL/schema.sql) file. The Entity Relationship Diagram image can be viewed [here](EmployeeSQL/employess_ERD.png). Data from CSV files was manually imported into corresponding tables in the Postgresql database.
+The data containing employee and department information were imported from several CSV files. Based on the data structure, corresponding tables were created in a Postgresql database. The database schema can be found in [schema.sql](EmployeeSQL/schema.sql) file. The Entity Relationship Diagram image can be viewed [here](EmployeeSQL/employess_ERD.png). Data from CSV files was manually imported into corresponding tables in the Postgresql database.
 
 Data Analysis includes several SQL queries:
 * List the manager of each department along with their department number, department name, employee number, last name, and first name (2 points)
